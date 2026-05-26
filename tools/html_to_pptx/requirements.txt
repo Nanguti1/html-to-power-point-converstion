@@ -1,0 +1,3 @@
+python-pptx
+beautifulsoup4
+lxml
