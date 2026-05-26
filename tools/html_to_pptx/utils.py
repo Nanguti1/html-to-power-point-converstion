@@ -54,9 +54,9 @@ def parse_numeric_weight(value: Optional[str]) -> Optional[int]:
 
 
 def parse_js_array_literal(script_text: str, var_name: str) -> Optional[str]:
-    # Support const/let/var and optional trailing semicolon/newline.
+    # Match either declared vars (const/let/var) or plain assignment.
     m = re.search(
-        rf"(?:const|let|var)\s+{re.escape(var_name)}\s*=\s*(\[[\s\S]*?\])\s*;?",
+        rf"(?:\b(?:const|let|var)\s+)?{re.escape(var_name)}\s*=\s*(\[[\s\S]*?\])\s*;?",
         script_text,
     )
     return m.group(1) if m else None

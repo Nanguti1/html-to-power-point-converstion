@@ -31,13 +31,6 @@ def _parse_required_array(script_text: str, name: str):
 
 
 def _find_chart_script(scripts: List[str]) -> Optional[str]:
-    # Prefer the script that constructs a chart and has data arrays.
-    for script in scripts:
-        if "new Chart(" not in script:
-            continue
-        if parse_js_array_literal(script, "labels") and parse_js_array_literal(script, "values"):
-            return script
-    # Fallback: any chart-construction script.
     for script in scripts:
         if "new Chart(" in script:
             return script
@@ -46,17 +39,25 @@ def _find_chart_script(scripts: List[str]) -> Optional[str]:
 
 def extract_chart_info(html_text: str) -> ChartInfo:
     soup = BeautifulSoup(html_text, "lxml")
-    scripts = [s.get_text("\n", strip=False) for s in soup.find_all("script") if s.get_text(strip=True)]
 
-    chart_script = _find_chart_script(scripts)
+    # Ignore external scripts (src=...) and parse only inline JS authored in slide HTML.
+    inline_scripts = [
+        s.get_text("\n", strip=False)
+        for s in soup.find_all("script")
+        if not s.get("src") and s.get_text(strip=True)
+    ]
+
+    chart_script = _find_chart_script(inline_scripts)
     if not chart_script:
-        raise ValueError("Could not locate Chart.js script block containing 'new Chart('")
+        raise ValueError("Could not locate inline Chart.js script block containing 'new Chart('")
 
-    labels = list(_parse_required_array(chart_script, "labels"))
-    values = [float(x) for x in _parse_required_array(chart_script, "values")]
+    # Some exports split array declarations and chart construction across inline scripts.
+    combined_inline_js = "\n\n".join(inline_scripts)
 
-    # counts is required per template, but fallback to 0s if absent for resilience.
-    counts_raw = parse_js_array_literal(chart_script, "counts")
+    labels = list(_parse_required_array(combined_inline_js, "labels"))
+    values = [float(x) for x in _parse_required_array(combined_inline_js, "values")]
+
+    counts_raw = parse_js_array_literal(combined_inline_js, "counts")
     if counts_raw:
         counts = [float(x) for x in ast.literal_eval(counts_raw)]
     else:
