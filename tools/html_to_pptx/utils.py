@@ -1,7 +1,7 @@
 from __future__ import annotations
 import re
 from typing import Dict, Optional
-from pptx.util import RGBColor
+from pptx.dml.color import RGBColor
 PX_PER_INCH = 96.0
 
 def px_to_inches(px_value: float) -> float:
