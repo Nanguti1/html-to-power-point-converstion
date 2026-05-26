@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0185)https://www.genspark.ai/api/slides_git/projects/e172b3d4-6bab-471a-80e4-27e27acd8620/decks/it-survey-charts/slides/07-reasons-for-against.html?v=adf7a531f755bca2bbca2c144dedee159a3b78cc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Reasons for and against</title>
+<link rel="stylesheet" href="./chart-base.css">
+<script src="./chart.umd.min.js.download"></script>
+<script src="./chartjs-plugin-datalabels.min.js.download"></script>
+<style id="slide-selected-style">
+  [data-slide-selected]::before
+  /* [data-slide-hover-selected]::before */ {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 4px;
+    border-radius: 0px;
+    outline: 2px solid #0f7fff !important;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+ /* [data-slide-hover-selected], */
+  [data-slide-selected] {
+    position: relative;
+    outline: none;
+    cursor: default;
+  }
+
+  img[data-slide-selected],
+  img[data-slide-hover-selected],
+  [data-slide-hover-selected],
+  [item-slide-click-selected],
+  [item-slide-selected] {
+    border: 2px solid #0f7fff !important;
+  }
+
+
+</style></head>
+<body>
+<div class="slide-container" data-screen-label="07 Reasons For and Against">
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:60px; top:30px; width:1160px; text-align:center; font-size:26px; font-weight:700; color:#000;">
+    Reasons for and against
+  </div>
+
+  <div data-object="true" data-object-type="chart" style="position:absolute; left:30px; top:90px; width:1220px; height:610px;">
+    <canvas id="c7" width="1525" height="762" style="display: block; box-sizing: border-box; height: 610px; width: 1220px;"></canvas>
+  </div>
+
+</div>
+<script>
+Chart.register(ChartDataLabels);
+const labels = [
+  'Yes. IT investment gives efficiency which attracts and retains customers',
+  'Yes. Through improved customer experience',
+  'Yes. Online platforms allow wider geographical reach.',
+  'Yes. IT investments may lead to quick and accurate infromation exchan...',
+  'No. Not nececesarily so',
+  'Yes. Through refererrals',
+  'Yes. Value addition to Services and products',
+  'Yes. Leads to integrity/Accuracy',
+  'Yes. Convinience'
+];
+const values = [32,23,9,9,9,5,5,5,5];
+const counts = [7,5,2,2,2,1,1,1,1];
+const colors = ['#F5A623','#F28066','#EE3F3C','#A33A2D','#3F1E1E','#B86B5C','#E07A3B','#F5C77E','#F0A89A'];
+
+new Chart(document.getElementById('c7'), {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [{
+      data: values,
+      backgroundColor: colors,
+      borderWidth: 0,
+      barPercentage: 0.75
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { right: 60, left: 10, top: 10, bottom: 10 } },
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false },
+      datalabels: {
+        anchor: 'end', align: 'end', color: '#000', font: { size: 12 },
+        formatter: (v, ctx) => `${v}% (${counts[ctx.dataIndex]})`
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 34,
+        ticks: { stepSize: 4, color: '#000', font: { size: 12 }, callback: v => v + '%' },
+        grid: { color: '#D9D9D9', drawBorder: false }
+      },
+      y: {
+        ticks: { color: '#000', font: { size: 11 }, autoSkip: false },
+        grid: { display: false, drawBorder: false }
+      }
+    }
+  }
+});
+</script>
+<script defer="" src="./v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<script src="./slide-inner.js.download"></script></body></html>

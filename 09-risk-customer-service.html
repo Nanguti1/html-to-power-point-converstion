@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0187)https://www.genspark.ai/api/slides_git/projects/e172b3d4-6bab-471a-80e4-27e27acd8620/decks/it-survey-charts/slides/09-risk-customer-service.html?v=adf7a531f755bca2bbca2c144dedee159a3b78cc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>IT Project risk management and customer service delivery</title>
+<link rel="stylesheet" href="./chart-base.css">
+<script src="./chart.umd.min.js.download"></script>
+<script src="./chartjs-plugin-datalabels.min.js.download"></script>
+<style id="slide-selected-style">
+  [data-slide-selected]::before
+  /* [data-slide-hover-selected]::before */ {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 4px;
+    border-radius: 0px;
+    outline: 2px solid #0f7fff !important;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+ /* [data-slide-hover-selected], */
+  [data-slide-selected] {
+    position: relative;
+    outline: none;
+    cursor: default;
+  }
+
+  img[data-slide-selected],
+  img[data-slide-hover-selected],
+  [data-slide-hover-selected],
+  [item-slide-click-selected],
+  [item-slide-selected] {
+    border: 2px solid #0f7fff !important;
+  }
+
+
+</style></head>
+<body>
+<div class="slide-container" data-screen-label="09 Risk and Customer Service">
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:60px; top:40px; width:1160px; text-align:center; font-size:24px; font-weight:700; color:#000;">
+    Relationship between IT Project risk management and customer service delivery
+  </div>
+
+  <div data-object="true" data-object-type="chart" style="position:absolute; left:300px; top:140px; width:520px; height:520px;">
+    <canvas id="c9" width="650" height="650" style="display: block; box-sizing: border-box; height: 520px; width: 520px;"></canvas>
+  </div>
+
+  <div data-object="true" data-object-type="shape" style="position:absolute; left:920px; top:330px; width:140px; height:140px; border:1px solid #BFBFBF; background:#fff;">
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:935px; top:350px; width:115px; font-size:18px; color:#000;">
+    <div style="display:flex;align-items:center;margin-bottom:20px;">
+      <span style="display:inline-block;width:24px;height:24px;background:#A2C037;margin-right:10px;"></span>Ye<br>s
+    </div>
+    <div style="display:flex;align-items:center;">
+      <span style="display:inline-block;width:24px;height:24px;background:#1B998B;margin-right:10px;"></span>No
+    </div>
+  </div>
+
+</div>
+<script>
+Chart.register(ChartDataLabels);
+new Chart(document.getElementById('c9'), {
+  type: 'pie',
+  data: {
+    labels: ['Yes','No'],
+    datasets: [{
+      data: [94, 6],
+      backgroundColor: ['#A2C037', '#1B998B'],
+      borderColor: '#fff',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: 40 },
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false },
+      datalabels: {
+        anchor: 'end', align: 'end', offset: 10,
+        color: '#000', font: { size: 15 },
+        formatter: (v, ctx) => `${v}% (${ctx.dataIndex===0?17:1})`
+      }
+    }
+  }
+});
+</script>
+<script defer="" src="./v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<script src="./slide-inner.js.download"></script></body></html>
